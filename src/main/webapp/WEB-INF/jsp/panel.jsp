@@ -12,12 +12,15 @@
     <%
         UserVM uservm = (UserVM) request.getAttribute("user");
         CustomerVM customerVM = (CustomerVM) request.getAttribute("customer");
-
+        long i = -1;
+        if(customerVM != null){
+            i = customerVM.getId();
+        }
     %>
 </head>
 
 <body ng-app="onlineShopApp">
-<div class="container-fluid" ng-controller="panelCtrl" ng-init="init(<%= customerVM %>)">
+<div class="container-fluid" ng-controller="panelCtrl" ng-init="init(<%= i %>)">
     <div class="row">
         <div class="panel-header ">
             <a ng-click="Logout()" class="btn btn-danger btn-sm">Logout</a>

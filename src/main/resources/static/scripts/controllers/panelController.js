@@ -100,13 +100,13 @@ app.controller("panelCtrl", function ($scope, ApiHandler, $cookies,$rootScope) {
     }
     $scope.checkAccess();
 
-    $scope.init= (Customer)=>{
-        if(Customer == null || Customer == undefined){
+    $scope.init= (id)=>{
+        if(id == -1){
            $scope.changeMenu("dashboard");
         }
         else
         {
-            $rootScope.currentCustomerId = Customer.id;
+            $rootScope.currentCustomerId = id;
             $scope.changeMenu("CustomerDashboard");
         }
 
