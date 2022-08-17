@@ -1,0 +1,25 @@
+<div ng-controller="sizeAddCtrl">
+    <div class="container p-3">
+
+        <div class="card">
+            <div class="card-header">
+                <b>size Add New Item</b>
+                <a class="btn btn-sm btn-primary float-end" ng-click="changeMenu('size-list')">
+                    <i class="fa fa-square-caret-left"></i>
+                    Return </a>
+            </div>
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="title" class="form-label">Title</label>
+                    <input type="text" class="form-control" id="title" ng-model="data.title">
+                </div>
+                <div class="form-group">
+                    <label for="description" class="form-label">Description</label>
+                    <input type="text" class="form-control" id="description" ng-model="data.description">
+                </div>
+                <br>
+                <button type="submit" class="btn btn-primary" ng-click="addData()">Insert</button>
+            </div>
+        </div>
+    </div>
+</div>

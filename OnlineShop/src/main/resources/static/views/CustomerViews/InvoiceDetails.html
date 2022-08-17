@@ -1,0 +1,112 @@
+<div ng-controller="InvoiceDetailCtrl">
+    <div class="container p-3">
+        <div class="row">
+            <div class="col">
+                <div class="card text-start InvoceStatus">
+                    <div class="card-header">
+                        <a class="btn btn-sm btn-primary float-end" ng-click="changeMenu('CustomerDashboard')">
+                            <i class="fa fa-square-caret-left"></i>
+                            Return </a>
+                        Invoice Details
+                    </div>
+                    <div class="card-body">
+                        <div class="card-text">
+                            <div class="row">
+                                <div class="col md col-6">
+                                    <div>
+                                        <span>Invoice No :</span>
+                                        <span>{{data.id}}</span>
+                                    </div>
+                                    <br/>
+                                    <div>
+                                        <span>Status :</span>
+                                        <span class="badge bg-success" ng-show="data.payed">Is payed</span>
+                                        <span class="badge bg-danger" ng-show="!data.payed">Not payed</span>
+                                    </div>
+                                    <br/>
+                                    <div>
+                                        <span>Invoice Date :</span>
+                                        <span>{{data.invoiceDateStr2}}</span>
+                                    </div>
+                                    <div ng-show="data.payed">
+                                        <span>Invoice Payed Date :</span>
+                                        <span>{{data.payedDateStr2}}</span>
+                                    </div>
+                                </div>
+                                <div class="col md col-6">
+                                    <div>
+                                        <span>Customer Name :</span>
+                                        <span>{{data.customer.fullName}}</span>
+                                    </div>
+                                    <div>
+                                        <span>Customer Mobile :</span>
+                                        <span>{{data.customer.mobile}}</span>
+                                    </div>
+                                    <div>
+                                        <span>Customer email :</span>
+                                        <span>{{data.customer.email}}</span>
+                                    </div>
+                                    <div>
+                                        <span>Customer tel :</span>
+                                        <span>{{data.customer.tel}}</span>
+                                    </div>
+                                    <div>
+                                        <span>Customer address :</span>
+                                        <span>{{data.customer.address}}</span>
+                                    </div>
+                                    <div>
+                                        <span>Customer postalCode :</span>
+                                        <span>{{data.customer.postalCode}}</span>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <h5>Items List</h5>
+                <hr/>
+                <table class="table table-striped table-hover">
+                    <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Item</th>
+                        <th scope="col">Color</th>
+                        <th scope="col">Size</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Count</th>
+                        <th scope="col">TotalItemPrice</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="item in data.orderItems">
+                        <th scope="row">{{$index + 1}}</th>
+                        <td>
+                            <a title="Show Products" class="btnDeleteColor"
+                               href="/oneProduct/{{item.product.id}}">
+                                <img ng-if="item.product.image"
+                                     ng-src="/api/utils/upload/files/{{item.product.image}}" width="50"/>
+                                <span>{{item.product.title}}</span>
+                            </a>
+                        </td>
+                        <td style="text-align-all: center">
+                            <label style="width:25px;height:25px;background-color:{{item.color.value}}"></label>
+                            <label>{{item.color.name}}</label>
+                        </td>
+                        <td>{{item.size.title}}</td>
+                        <td>{{item.price}}</td>
+                        <td>{{item.count}}</td>
+                        <td>{{item.price * item.count}}</td>
+                    </tbody>
+                </table>
+                <div class="text-end">
+                    <a ng-show="!data.payed" class="btn btn-success" ng-click="GoToBasket()"><i class="fa fa-credit-card"></i> purchase </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

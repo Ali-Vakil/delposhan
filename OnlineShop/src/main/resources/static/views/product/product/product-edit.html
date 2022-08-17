@@ -1,0 +1,150 @@
+<div ng-controller="productEditCtrl">
+    <div class="container p-3">
+
+        <div class="card">
+            <div class="card-header">
+                <b>product Edit Item</b>
+                <a class="btn btn-sm btn-primary float-end" ng-click="changeMenuWithCategory('product-list')">
+                    <i class="fa fa-square-caret-left"></i>
+                    Return </a>
+            </div>
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="title" class="form-label">Title</label>
+                    <input type="text" class="form-control" id="title" ng-model="data.title">
+                </div>
+                <div class="form-group">
+                    <label for="description" class="form-label">Description</label>
+                    <div text-angular="text-angular" id="description" name="description"
+                         ng-model="data.description"></div>
+                </div>
+                <div class="form-group">
+                    <label for="price" class="form-label">Price</label>
+                    <input type="number" class="form-control" id="price" ng-model="data.price">
+                </div>
+                <div class="form-group">
+                    <div class="row borderStd">
+                        <div class="row">
+                            <label class="form-label">Is Enable</label><br/>
+                        </div>
+                        <div class="row">
+                            <div class="col-1">
+                                <input type="checkbox" class="btn-check" ng-checked="{{data.enable}}" id="Enable"
+                                       autocomplete="off" ng-model="data.enable">
+                                <label class="btn btn-outline-primary" for="Enable">{{data.enable}}</label><br>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row borderStd">
+                        <div class="row">
+                            <label class="form-label">Is Exists</label><br/>
+                        </div>
+                        <div class="row">
+                            <div class="col-1">
+                                <input type="checkbox" class="btn-check" ng-checked="{{data.exists}}" id="exists"
+                                       autocomplete="off" ng-model="data.exists">
+                                <label class="btn btn-outline-primary" for="exists">{{data.exists}}</label><br>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group borderStd">
+                    <div class="row">
+                        <label for="color" class="form-label">Chose Your Colors</label>
+                    </div>
+
+                    <div class="row">
+                    <div id="color" ng-repeat="item in colors" style="width:100px;min-width:100px;max-width:500px" class="col-1 p-1">
+                        <input type="checkbox" ng-checked="IsColorSelected({{item.id}})"
+                               class="btn-check" id="color_{{item.id}}" ng-click="ColorChangeManager()"
+                               autocomplete="off" ng-model="choosColor[item.id]">
+                        <label class="btn btn-outline-primary" id="colorLabel{{item.id}}"
+                               style="background:{{colorCheckBoxLabel}} ;width:90px;margin-left:10px;"
+                               for="color_{{item.id}}">{{item.name}}</label><br>
+                    </div>
+                    </div>
+
+                </div>
+                <div class="form-group borderStd">
+                    <div class="row">
+                        <label>Size</label>
+                    </div>
+                    <div style="max-height:200px; overflow: auto; display: inline-block;">
+                        <table>
+
+                            <thead>
+                            <tr>
+                                <th scope="col">Size</th>
+                                <th scope="col">Description</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="item in sizes">
+                                <td>
+                                    <div style="margin:2px">
+                                        <input class="btn-check" type="checkbox" value="{{item.id}}"
+                                               ng-checked="IsSizeSelected({{item.id}})" id="Size_{{item.id}}"
+                                               ng-model="data.sizes[item.id]">
+                                        <label class="btn btn-outline-primary" style="width:80px"
+                                               for="Size_{{item.id}}">{{item.title}}</label>
+                                    </div>
+                                </td>
+                                <td>
+                                    {{item.description}}
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+
+                <div class="form-group formFeatuers m-2 p-3">
+                    <label for="featuer" class="form-label">Featuer</label>
+                    <div class="row">
+
+                        <div class="col-5">
+                            <label for="key" class="form-label">Key</label>
+                            <input id="key" ng-model="newFeatuer.key" class="form-control">
+                        </div>
+                        <div class="col-5">
+                            <label for="value" class="form-label">value</label>
+                            <input id="value" ng-model="newFeatuer.value" class="form-control">
+                        </div>
+                        <div class="col-2">
+                            <br/>
+                            <input type="button" class="btn btn-success" value="+" ng-click="addFeatuers()">
+                        </div>
+                    </div>
+                    <ul id="featuer">
+                        <li ng-repeat="f in featuresList">{{f.key}} : {{f.value}}
+                            <i class="fa fa-times color-red m-l-10" ng-click="deleteFeatuers(f.id)"></i>
+                        </li>
+                    </ul>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Image</label>
+                    <div class="row">
+                        <div style="width: 100px;">
+                            <img ng-if="data.image" width="80" ng-src="/api/utils/upload/files/{{data.image}}"/>
+                        </div>
+                        <div style="width:100px;">
+                            <button type="submit" class="btn btn-sm btn-primary" ng-click="changeEnableFlag()">
+                                ChangeImage
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" ng-show="EnableFlage">
+                    <label class="form-label">Image</label>
+                    <div ng-include="'views/utils/FileUploader.html'"></div>
+                </div>
+                <br>
+                <button type="submit" class="btn btn-primary" ng-click="EditData()">Update</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+<div ng-controller="contentEditCtrl">
+    <div class="container p-3">
+
+        <div class="card">
+            <div class="card-header">
+                <b>content Edit Item</b>
+                <a class="btn btn-sm btn-primary float-end" ng-click="changeMenu('content-list')">
+                    <i class="fa fa-square-caret-left" ></i>
+                    Return </a>
+            </div>
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="key" class="form-label">key</label>
+                    <input type="text" class="form-control" id="key" ng-model="data.key">
+                </div>
+                <div class="form-group">
+                    <label for="value" class="form-label">value (4000 char limited)</label>
+                    <div text-angular="text-angular" id="value" name="value" ng-model="data.value"></div>
+                </div>
+                <br>
+                <button type="submit" class="btn btn-primary" ng-click="EditData()">Update</button>
+            </div>
+        </div>
+    </div>
+</div>

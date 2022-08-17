@@ -1,0 +1,10 @@
+body{
+    background-color:#5DADE2;
+}
+.login-box-holder{
+    margin: 1% auto 0;
+    background-color: #ffffff;
+    border-radius: 5px;
+    border: 1px solid #eee;
+    padding: 15px;
+}

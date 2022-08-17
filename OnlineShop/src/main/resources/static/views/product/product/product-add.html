@@ -1,0 +1,84 @@
+<div ng-controller="productAddCtrl">
+    <div class="container p-3">
+
+        <div class="card">
+            <div class="card-header">
+                <b>product Add New Item</b>
+                <a class="btn btn-sm btn-primary float-end" ng-click="changeMenuWithCategory('product-list')">
+                    <i class="fa fa-square-caret-left"></i>
+                    Return </a>
+            </div>
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="title" class="form-label">Title</label>
+                    <input type="text" class="form-control" id="title" ng-model="data.title">
+                </div>
+                <div class="form-group">
+                    <label for="description" class="form-label">Description</label>
+                    <div text-angular="text-angular" id="description" name="description"
+                         ng-model="data.description"></div>
+                </div>
+                <div class="form-group">
+                    <label for="price" class="form-label">Price</label>
+                    <input type="number" class="form-control" id="price" ng-model="data.price">
+                </div>
+                <div class="form-group">
+                    <label for="enable" class="form-label">Enable</label>
+                    <select class="form-control" id="enable" ng-model="data.enable">
+                        <option value="true">Yes</option>
+                        <option value="false">No</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="exists" class="form-label">Exists</label>
+                    <select class="form-control" id="exists" ng-model="data.exists">
+                        <option value="true">Yes</option>
+                        <option value="false">No</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="color" class="form-label">Color</label>
+                    <select multiple="multiple" class="form-control" id="color" ng-model="data.colors">
+                        <option ng-repeat="item in colors" value="{{item.id}}">{{item.name}} ({{item.value}})</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="Sizes" class="form-label">Sizes</label>
+                    <select multiple="multiple" class="form-control" id="Sizes" ng-model="data.sizes">
+                        <option ng-repeat="item in sizes" value="{{item.id}}">{{item.title}}</option>
+                    </select>
+                </div>
+                <div class="form-group formFeatuers m-2 p-3">
+                    <label for="featuer" class="form-label">Featuer</label>
+                    <div class="row">
+
+                        <div class="col-5">
+                            <label for="key" class="form-label">Key</label>
+                            <input id="key" ng-model="newFeatuer.key" class="form-control">
+                        </div>
+                        <div class="col-5">
+                            <label for="value" class="form-label">value</label>
+                            <input id="value" ng-model="newFeatuer.value" class="form-control">
+                        </div>
+                        <div class="col-2">
+                            <br/>
+                            <input type="button" class="btn btn-success" value="+" ng-click="addFeatuers()">
+                        </div>
+                    </div>
+                    <ul id="featuer">
+                        <li ng-repeat="f in FeaturesList">{{f.key}} : {{f.value}}
+                        <i class="fa fa-times color-red m-l-10" ng-click="deleteFeatuers(f.id)"></i>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Image</label>
+                    <div ng-include="'views/utils/FileUploader.html'"></div>
+                </div>
+                <br>
+                <button type="submit" class="btn btn-primary" ng-click="addData()">Insert</button>
+            </div>
+        </div>
+    </div>
+</div>

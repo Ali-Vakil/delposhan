@@ -1,0 +1,47 @@
+<div ng-controller="blogAddCtrl">
+    <div class="container p-3">
+
+        <div class="card">
+            <div class="card-header">
+                <b>blog Add New Item</b>
+                <a class="btn btn-sm btn-primary float-end" ng-click="changeMenu('blog-list')">
+                    <i class="fa fa-square-caret-left"></i>
+                    Return </a>
+            </div>
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="title" class="form-label">Title</label>
+                    <input type="text" class="form-control" id="title" ng-model="data.title">
+                </div>
+                <div class="form-group">
+                    <label for="subtitle" class="form-label">subTitle</label>
+                    <input type="text" class="form-control" id="subtitle" ng-model="data.subtitle">
+                </div>
+                <div class="form-group">
+                    <label for="description" class="form-label">value</label>
+                    <div text-angular="text-angular" id="description" name="description"
+                         ng-model="data.description"></div>
+                </div>
+                <div class="form-group">
+                    <label for="publishedDate" class="form-label">publishDate</label>
+                    <input type="date" class="form-control" id="publishedDate" ng-model="data.publishDate">
+                </div>
+                <div class="form-group">
+                    <div class="col -2">
+                        <label for="status" class="form-label">status</label>
+                        <select class="form-control" id="status" ng-model="data.status">
+                            <option value="PUBLISHED">PUBLISHED</option>
+                            <option value="DRAFT">DRAFT</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Image</label>
+                    <div ng-include="'views/utils/FileUploader.html'"></div>
+                </div>
+                <br>
+                <button type="submit" class="btn btn-primary" ng-click="addData()">Insert</button>
+            </div>
+        </div>
+    </div>
+</div>

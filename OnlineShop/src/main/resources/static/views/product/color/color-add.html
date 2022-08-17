@@ -1,0 +1,25 @@
+<div ng-controller="colorAddCtrl">
+    <div class="container p-3">
+
+        <div class="card">
+            <div class="card-header">
+                <b>Color Add New Item</b>
+                <a class="btn btn-sm btn-primary float-end"  ng-click="changeMenu('color-list')">
+                    <i class="fa fa-square-caret-left" ></i>
+                    Return </a>
+            </div>
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="name" class="form-label">Title</label>
+                    <input type="text" class="form-control" id="name" ng-model="data.name">
+                </div>
+                <div class="form-group" >
+                    <label for="value" class="form-label">Value</label>
+                    <input type="color" class="form-control"  id="value" ng-model="data.value">
+                </div>
+                <br>
+                <button type="submit" class="btn btn-primary" ng-click="addData()">Insert</button>
+            </div>
+        </div>
+    </div>
+</div>

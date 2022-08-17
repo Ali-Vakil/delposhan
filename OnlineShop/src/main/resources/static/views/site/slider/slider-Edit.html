@@ -1,0 +1,53 @@
+<div ng-controller="SliderEditCtrl">
+    <div class="container p-3">
+
+        <div class="card">
+            <div class="card-header">
+                <b>Slider Edit New Item</b>
+                <a class="btn btn-sm btn-primary float-end" ng-click="changeMenu('slider-list')">
+                    <i class="fa fa-square-caret-left"></i>
+                    Return </a>
+            </div>
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="title" class="form-label">Title</label>
+                    <input type="text" class="form-control" id="title" ng-model="data.title">
+                </div>
+                <div class="form-group">
+                    <label for="link_" class="form-label">Link</label>
+                    <input type="text" class="form-control" id="link_" ng-model="data.link">
+                </div>
+                <div class="form-group">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea class="form-control" id="description" ng-model="data.description">
+                    </textarea>
+                </div>
+                <div class="form-group">
+                    <label for="enable" class="form-label">Enable</label>
+                    <select class="form-control" id="enable" ng-model="data.enable">
+                        <option value="true">Yes</option>
+                        <option value="false">No</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Image</label>
+                    <div class="row">
+                        <div style="width: 100px;">
+                            <img ng-if="data.image" width="80" ng-src="/api/utils/upload/files/{{data.image}}"/>
+                        </div>
+                        <div style="width:100px;">
+                            <button type="submit" class="btn btn-sm btn-primary" ng-click="changeEnableFlag()">ChangeImage</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" ng-show="EnableFlage">
+                    <label class="form-label">Choose Image</label>
+                    <div ng-include="'views/utils/FileUploader.html'"></div>
+                </div>
+                <br>
+                <button type="submit" class="btn btn-primary" ng-click="EditData()">Update</button>
+            </div>
+        </div>
+    </div>
+</div>

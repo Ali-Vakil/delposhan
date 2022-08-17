@@ -1,0 +1,50 @@
+<div ng-controller="colorListCtrl">
+    <div class="container p-3">
+        <div class="row">
+            <div class="col">
+                <h1>color List</h1>
+                <a class="btn btn-primary btn-sm float-end" ng-click="changeMenu('color-add')">Add New +</a>
+                <a class="btn btn-sm btn-primary float-end m-r-10" ng-click="changeMenu('category-list')">
+                    <i class="fa fa-square-caret-left" ></i>
+                    Return </a>
+                <br>
+                <hr/>
+                <table class="table table-striped table-hover">
+                    <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Color</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">value</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="data in dataList">
+                        <th scope="row">{{$index + 1}}</th>
+                        <td><div class="color-entity-box" style="background:{{data.value}} " ></div> </td>
+                        <td>{{data.name}}</td>
+                        <td>{{data.value}}</td>
+                        <td>
+                            <a ng-click="editItem(data.id)" class="btnEditColor"><i class="fa fa-edit"></i></a>
+                        </td>
+                    </tr>
+                    </tbody>
+
+                </table>
+            </div>
+            <div>
+                <br>
+                <nav>
+                    <ul class="pagination pagination-sm">
+                        <li ng-repeat="i in range(pageCount) track by $index" class="page-item" aria-current="page">
+                            <span class="page-link" ng-click="changPage($index)">
+                                {{$index + 1 }}
+                            </span>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>

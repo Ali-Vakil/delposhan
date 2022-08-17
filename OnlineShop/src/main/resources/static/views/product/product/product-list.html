@@ -1,0 +1,66 @@
+<div ng-controller="productListCtrl">
+    <div class="container p-3">
+        <div class="row">
+            <div class="col">
+                <h1>{{category.title}} Products</h1>
+                <a class="btn btn-primary btn-sm float-end" ng-click="changeMenuWithCategory('product-add')">Add New +</a>
+                <a class="btn btn-sm btn-primary float-end m-r-10" ng-click="changeMenu('category-list')">
+                    <i class="fa fa-square-caret-left" ></i>
+                    Return </a>
+                <br>
+                <hr/>
+                <table class="table table-striped table-hover">
+                    <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Image</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="data in dataList">
+                        <th scope="row">{{$index + 1}}</th>
+                        <td>
+                            <img ng-if="data.image" ng-src="/api/utils/upload/files/{{data.image}}" width="100"/>
+                        </td>
+                        <td>{{data.title}}</td>
+                        <td>{{data.price}}</td>
+                        <td>
+                            <span class="badge bg-success" ng-show="data.enable">Enable</span>
+                            <span class="badge bg-danger" ng-show="!data.enable">Disable</span>
+                            <br>
+                            <span class="badge bg-success" ng-show="data.exists">exists</span>
+                            <span class="badge bg-danger" ng-show="!data.exists">not exists</span>
+                            <br>
+                            <span class="badge bg-info">{{data.visitCount}}</span>
+                        </td>
+                        <td>
+                            <a ng-click="editItem(data.id)" class="btnEditColor"><i class="fa fa-edit"></i></a>
+                            &nbsp;
+                            <a ng-click="DeleteItem(data.id)" class="btnDeleteColor"><i class="fa fa-trash-can"></i></a>
+                            &nbsp;
+                            <a title="Show Products"  class="btnDeleteColor" href="/api/product/{{data.id}}" ><i class="fa fa-eye btnEditColor"></i></a>
+                        </td>
+                    </tr>
+                    </tbody>
+
+                </table>
+            </div>
+            <div>
+                <br>
+                <nav>
+                    <ul class="pagination pagination-sm">
+                        <li ng-repeat="i in range(pageCount) track by $index" class="page-item" aria-current="page">
+                            <span class="page-link" ng-click="changPage($index)">
+                                {{$index + 1 }}
+                            </span>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>

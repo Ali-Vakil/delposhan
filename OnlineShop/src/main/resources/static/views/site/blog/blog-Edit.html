@@ -1,0 +1,60 @@
+<div ng-controller="blogEditCtrl">
+    <div class="container p-3">
+
+        <div class="card">
+            <div class="card-header">
+                <b>Blog Edit Form</b>
+                <a class="btn btn-sm btn-primary float-end" ng-click="changeMenu('blog-list')">
+                    <i class="fa fa-square-caret-left"></i>
+                    Return </a>
+            </div>
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="title" class="form-label">Title</label>
+                    <input type="text" class="form-control" id="title" ng-model="data.title">
+                </div>
+                <div class="form-group">
+                    <label for="subtitle" class="form-label">subtitle</label>
+                    <input type="text" class="form-control" id="subtitle" ng-model="data.subtitle">
+                </div>
+                <div class="form-group">
+                    <label for="description" class="form-label">value</label>
+                    <div text-angular="text-angular" id="description" name="description"
+                         ng-model="data.description"></div>
+                </div>
+                <div class="form-group">
+                    <label for="publishDate" class="form-label">PublishDate</label>
+                    <input type="date"  id="publishDate"  ng-model="Time">
+                </div>
+                <div class="form-group">
+                    <div class="col -2">
+                        <label for="status" class="form-label">status</label>
+                        <select class="form-control" id="status" ng-model="data.status">
+                            <option value="PUBLISHED">PUBLISHED</option>
+                            <option value="DRAFT">DRAFT</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Image</label>
+                    <div class="row">
+                        <div style="width: 100px;">
+                            <img ng-if="data.image" width="80" ng-src="/api/utils/upload/files/{{data.image}}"/>
+                        </div>
+                        <div style="width:100px;">
+                            <button type="submit" class="btn btn-sm btn-primary" ng-click="changeEnableFlag()">ChangeImage</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" ng-show="EnableFlage">
+                    <label class="form-label">Choose Image</label>
+                    <div ng-include="'views/utils/FileUploader.html'"></div>
+                </div>
+                <br>
+                <br>
+                <button type="submit" class="btn btn-primary" ng-click="EditData()">Update</button>
+            </div>
+        </div>
+    </div>
+</div>

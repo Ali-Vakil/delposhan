@@ -1,0 +1,88 @@
+.panel-header{
+    background-color: #fff;
+    border-bottom: 1px solid #aaa;
+    padding: 10px;
+}
+
+.side-nave{
+    background-color: #34495e;
+    color:#fff;
+    height: 100%;
+}
+.m-r-10{
+    margin-right: 10px;
+}
+.m-l-10{
+    margin-left: 10px;
+}
+.side-nave a{
+    color:#fff;
+    text-decoration: none;
+}
+.side-nave ul{
+    font-size: large;
+    list-style: none;
+    padding: 10px;
+}
+.side-nave li{
+    padding: 10px;
+}
+.side-nave li:hover{
+    background-color: #405972;
+}
+.nav-side-active{
+    background-color: #637c8e;
+}
+.main-container{
+    min-height: 1000px;
+    background-color: #fff;
+    height: 100%;
+}
+.pagination .page-link{
+    cursor : pointer;
+}
+.btnEditColor{
+    color: #2c9c8e;
+    cursor:pointer;
+
+}
+.btnDeleteColor{
+    color: #f56659;
+    cursor:pointer;
+}
+.btnUpColor{
+    color: #4b8fde;
+    cursor:pointer;
+}
+.btnDownColor{
+    color: #f8b034;
+    cursor:pointer;
+}
+.color-entity-box{
+    width: 25px;
+    height: 25px;
+}
+.formFeatuers{
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.chbx{
+    width:20px;
+    height:20px;
+    border-radius:3px;
+}
+.borderStd{
+    border: 1px solid #bfd1ec;
+    margin:5px;
+    padding:4px;
+}
+.payedStatus{
+    font-weight: bolder;
+    font-size: 20px;
+    font-style: italic;
+}
+.InvoceStatus{
+    font-weight: bold;
+    font-size: 16px;
+    font-style: italic;
+}

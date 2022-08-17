@@ -1,0 +1,116 @@
+.card-margin {
+    margin-bottom: 20px;
+}
+
+.parallex-cover {
+    background-image: url("../images/parallax.jpg");
+    min-height: 450px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+.m-r-10{
+    margin-right: 10px;
+}
+.m-l-10{
+    margin-left: 10px;
+}
+.main-footer {
+    background-color: #282828;
+    padding: 25px;
+    color: #FFFFFF;
+}
+
+.footer-social {
+    background-color: #525252;
+    color: #9c9c9c;
+    text-align: center;
+    padding: 15px;
+    margin-right: 10px;
+    width: 50px;
+    display: inline;
+}
+
+.footer-circle-item {
+    width: 50px;
+    height: 50px;
+    background-color: #525252;
+    color: #9c9c9c;
+    text-align: center;
+    position: relative;
+    padding: 15px;
+    border-radius: 50%;
+    font-size: 18px;
+    display: inline-block;
+
+}
+
+.footer-circle-item-detail {
+    color: #9c9c9c;
+    padding: 7px;
+    font-size: 18px;
+    text-align: justify;
+display: inline-block;
+}
+
+.Title-active {
+    background-color: #e3eaf7;
+    border-radius: 20%;
+}
+
+.product-cat-item {
+    text-align: center;
+
+}
+.product-cat-link{
+    text-decoration:none;
+    color:#222;
+}
+.product-cat-image {
+    background-color: #eee;
+    padding: 10px;
+    text-align: center;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    margin: 5px auto;
+}
+
+.product-cat-title {
+    text-align: center;
+    font-weight: bold;
+    margin: 5px auto;
+}
+.footerBackground{
+    background-color: #ddd;
+}
+.text-right{
+    text-align: end;
+}
+.imageCardSize{
+    width: auto;
+    height: auto;
+    max-width: 300px;
+    max-height: 300px;
+}
+.verifytitel{
+    font-weight: bolder;
+    font-size: 20px;
+    font-style: italic;
+}
+
+.verifyBody{
+
+    font-size: 28px;
+    font-style: italic;
+    text-shadow: 0px 2px 4px #2c3034;
+}
+.min-heiht-500{
+    min-height: 500px;
+}
+.card-side-Margin{
+    margin-left: 20px;
+    margin-right: 20px;
+}
